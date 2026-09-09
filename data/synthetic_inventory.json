@@ -1,0 +1,14 @@
+[
+  {"type":"storage_bucket","name":"customer-export-archive","project_id":"acme-prod-01","public":true,"uniform_bucket_level_access":false},
+  {"type":"storage_bucket","name":"analytics-staging","project_id":"acme-data-01","public":false,"uniform_bucket_level_access":true},
+  {"type":"service_account","name":"legacy-ci@acme-prod-01.iam.gserviceaccount.com","project_id":"acme-prod-01","user_managed_keys":2},
+  {"type":"service_account","name":"runtime@acme-prod-01.iam.gserviceaccount.com","project_id":"acme-prod-01","user_managed_keys":0},
+  {"type":"iam_binding","name":"prod-editors","project_id":"acme-prod-01","role":"roles/editor","members":["user:platform@acme.example","user:contractor@outside.example"],"approved_domains":["@acme.example"]},
+  {"type":"iam_binding","name":"security-viewers","project_id":"acme-prod-01","role":"roles/viewer","members":["group:security@acme.example"],"approved_domains":["@acme.example"]},
+  {"type":"firewall_rule","name":"allow-admin-anywhere","project_id":"acme-prod-01","source_ranges":["0.0.0.0/0"],"allowed_ports":[22,443]},
+  {"type":"firewall_rule","name":"allow-web","project_id":"acme-prod-01","source_ranges":["0.0.0.0/0"],"allowed_ports":[443]},
+  {"type":"cloud_sql","name":"orders-db","project_id":"acme-prod-01","public_ip":true,"authorized_networks":["0.0.0.0/0"]},
+  {"type":"cloud_sql","name":"analytics-db","project_id":"acme-data-01","public_ip":false,"authorized_networks":[]},
+  {"type":"project_logging","name":"prod-audit-config","project_id":"acme-prod-01","admin_activity":true,"data_access":false,"sink_enabled":true},
+  {"type":"project_logging","name":"data-audit-config","project_id":"acme-data-01","admin_activity":true,"data_access":true,"sink_enabled":true}
+]
